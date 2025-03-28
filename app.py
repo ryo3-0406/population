@@ -99,7 +99,7 @@ else:
         )
         for key, val in settings.items():
             st.markdown(
-                f"<div style='font-size:0.8rem; color:#666; margin-bottom:0.2rem;'>{key}: {val}</div>",
+                f"<div style='font-size:0.8rem; margin-bottom:0.2rem;'>{key}: {val}</div>",
                 unsafe_allow_html=True
             )
 
