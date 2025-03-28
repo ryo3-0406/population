@@ -8,7 +8,7 @@ model = Population()
 st.set_page_config(page_title="令和2年(2020年)国勢調査", layout="wide")
 
 # メインタイトル
-st.title("📊 令和2年(2020年)国勢調査")
+st.title("令和2年(2020年)国勢調査")
 st.subheader("世帯数・人口等基本集計")
 
 # サイドバー設定
