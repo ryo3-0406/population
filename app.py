@@ -94,7 +94,7 @@ else:
         # 設定内容をカードの外で表示
         # 設定内容を控えめに表示する例
         st.markdown(
-            "<div style='font-size:0.9rem; color:#555; margin-top:0.5rem;'>設定内容:</div>",
+            "<div style='font-size:0.9rem; margin-top:0.5rem;'>設定内容:</div>",
             unsafe_allow_html=True
         )
         for key, val in settings.items():
