@@ -88,7 +88,7 @@ else:
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             ">
                 <h4 style="margin-bottom: 0.5rem;">集計 {idx}</h4>
-                <p style="font-size: 1.5rem; font-weight: bold;">{formatted_value}</p>
+                <p style="font-size: 1.5rem; font-weight: bold; color: black;">{formatted_value}</p>
             </div>
             """, unsafe_allow_html=True)
         # 設定内容をカードの外で表示
