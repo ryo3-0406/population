@@ -1,0 +1,6 @@
+venv_population_mac
+.venv*
+*pyc
+*xml
+.idea
+*iml
