@@ -12,7 +12,7 @@ st.title("令和2年(2020年)国勢調査")
 st.subheader("世帯数・人口等基本集計")
 
 # サイドバー設定
-st.sidebar.header("設定")
+st.sidebar.title("設定")
 
 # 集計対象の選択
 household_or_personal = st.sidebar.radio("【集計対象】", ["人口", "世帯数"], index=0)
