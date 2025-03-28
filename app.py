@@ -105,17 +105,17 @@ else:
 
         st.markdown("---")
 
-    # 集計結果の後に備考を表示
-    st.markdown("#### 備考・お知らせ")
-    st.markdown("""
-    - 最終更新日：2025年3月29日(金)
-    - 本集計アプリは<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&tclass2val=0" target="_blank" rel="noopener noreferrer">令和2年(2020年)の国勢調査データ</a>（表番号: <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142402&tclass2val=0" target="_blank" rel="noopener noreferrer">1-1</a>, <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142404&tclass2val=0" target="_blank" rel="noopener noreferrer">2-1</a>）を基に作成しています。
-    - 2020年段階の全人口(外国籍含む)は**126,146,099**人ですが、年齢不詳者が**2,931,838**人おり、この年齢不詳者数は結果に含めておりません。
-    - 世帯数は「2_施設等の世帯」も含む総数で計算しています。
-    - 関東(1都6県)：茨城県、栃木県、群馬県、埼玉県、千葉県、東京都、神奈川県
-    - 中部(東海3県)：岐阜県、愛知県、三重県
-    - 関西(2府4県)：滋賀県、京都府、大阪府、兵庫県、奈良県、和歌山県
-    - 福岡(2県)：福岡県、佐賀県
-    - 本アプリに関するお問い合わせは【中村(亮)】までお願いします。
-    """, unsafe_allow_html=True)
+# 集計結果の後に備考を表示
+st.markdown("#### 備考・お知らせ")
+st.markdown("""
+- 最終更新日：2025年3月29日(金)
+- 本集計アプリは<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&tclass2val=0" target="_blank" rel="noopener noreferrer">令和2年(2020年)の国勢調査データ</a>（表番号: <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142402&tclass2val=0" target="_blank" rel="noopener noreferrer">1-1</a>, <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142404&tclass2val=0" target="_blank" rel="noopener noreferrer">2-1</a>）を基に作成しています。
+- 2020年段階の全人口(外国籍含む)は**126,146,099**人ですが、年齢不詳者が**2,931,838**人おり、この年齢不詳者数は結果に含めておりません。
+- 世帯数は「2_施設等の世帯」も含む総数で計算しています。
+- 関東(1都6県)：茨城県、栃木県、群馬県、埼玉県、千葉県、東京都、神奈川県
+- 中部(東海3県)：岐阜県、愛知県、三重県
+- 関西(2府4県)：滋賀県、京都府、大阪府、兵庫県、奈良県、和歌山県
+- 福岡(2県)：福岡県、佐賀県
+- 本アプリに関するお問い合わせは【中村(亮)】までお願いします。
+""", unsafe_allow_html=True)
 
