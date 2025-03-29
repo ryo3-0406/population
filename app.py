@@ -1,5 +1,8 @@
 from model import Population
 import streamlit as st
+import pandas as pd
+from io import BytesIO
+
 
 # モデルの初期化
 model = Population()
@@ -31,6 +34,8 @@ st.sidebar.markdown("---")
 
 # 集計ごとの条件と結果の格納リスト
 aggregations = []
+excel_rows = []  # Excel用データ
+
 for i in range(number_of_aggregation):
     with st.sidebar.expander(f"▼ 集計 {i + 1} の条件", expanded=True):
         # 各集計の条件を辞書にまとめる
@@ -69,6 +74,18 @@ for i in range(number_of_aggregation):
 
         aggregations.append((i + 1, result, "人" if household_or_personal == "人口" else "世帯", settings))
 
+        # Excel用データを追加
+        excel_row = {
+            '集計番号': i + 1,
+            '集計対象': household_or_personal,
+            '地域': settings.get('地域', '未選択'),
+            '国民種別': settings.get('国民種別', '-'),
+            '性別': settings.get('性別', '-'),
+            '年齢範囲': settings.get('年齢', '-'),
+            '結果': result
+        }
+        excel_rows.append(excel_row)
+
 # --- 結果表示 ---
 if not aggregations or all(r[1] is None for r in aggregations):
     st.info("左のサイドバーから集計条件を選択してください。")
@@ -105,11 +122,31 @@ else:
 
         st.markdown("---")
 
+# Excel出力
+if excel_rows:
+    st.markdown("""    
+    #### エクスポート
+    集計結果をEXCELでダウンロード
+    """)
+    df_excel = pd.DataFrame(excel_rows)
+
+    output = BytesIO()
+    with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+        df_excel.to_excel(writer, index=False, sheet_name="集計結果")
+
+    excel_data = output.getvalue()
+
+    st.download_button(
+        label="Excelでダウンロード",
+        data=excel_data,
+        file_name="population_aggregation.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+    st.markdown("---")
+
 # 集計結果の後に備考を表示
 st.markdown("""
 <small>
-
----
 
 #### 出典  
 - **国勢調査**： [令和2年(2020年)](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&tclass2val=0)  

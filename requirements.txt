@@ -1,0 +1,4 @@
+openpyxl==3.1.5
+pip-chill==1.0.3
+streamlit==1.44.0
+xlsxwriter==3.2.2
