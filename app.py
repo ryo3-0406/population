@@ -8,11 +8,11 @@ from io import BytesIO
 model = Population()
 
 # ページ設定
-st.set_page_config(page_title="令和2年(2020年)国勢調査", layout="wide")
+st.set_page_config(page_title="令和2年_国勢調査", layout="wide")
 
 # メインタイトル
-st.title("令和2年(2020年)国勢調査")
-st.subheader("世帯数・人口等基本集計")
+st.title("令和2年('20年) 国勢調査")
+st.subheader("世帯数・人口 基本集計")
 
 # サイドバー設定
 st.sidebar.title("設定")
