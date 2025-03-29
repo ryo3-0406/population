@@ -1,15 +1,15 @@
 import pandas as pd
 
 
-# df_setai = pd.read_excel("./data/R2_pop_setai.xlsx")
-# df_age = pd.read_excel("./data/R2_pop_age_area.xlsx")
-# df_setai.to_pickle("./data/R2_pop_setai.pickle")
-# df_age.to_pickle("./data/R2_pop_age_area.pickle")
+df_setai = pd.read_excel("./data/R2_pop_setai.xlsx")
+df_age = pd.read_excel("./data/R2_pop_age.xlsx")
+df_setai.to_pickle("./data/R2_pop_setai.pickle")
+df_age.to_pickle("./data/R2_pop_age.pickle")
 
 
 class Population:
     def __init__(self):
-        df_age = pd.read_pickle("./data/R2_pop_age_area.pickle")
+        df_age = pd.read_pickle("./data/R2_pop_age.pickle")
         df_age = df_age[df_age["code_2"] == 000]
 
         df_setai = pd.read_pickle("./data/R2_pop_setai.pickle")
