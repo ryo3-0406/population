@@ -1,10 +1,10 @@
 import pandas as pd
 
 
-# df_setai = pd.read_excel("./data/R2_pop_setai.xlsx")
-# df_age = pd.read_excel("./data/R2_pop_age.xlsx")
-# df_setai.to_pickle("./data/R2_pop_setai.pickle")
-# df_age.to_pickle("./data/R2_pop_age.pickle")
+df_setai = pd.read_excel("./data/R2_pop_setai.xlsx")
+df_age = pd.read_excel("./data/R2_pop_age.xlsx")
+df_setai.to_pickle("./data/R2_pop_setai.pickle")
+df_age.to_pickle("./data/R2_pop_age.pickle")
 
 
 class Population:
