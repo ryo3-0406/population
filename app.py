@@ -149,7 +149,8 @@ st.markdown("""
 <small>
 
 #### 出典  
-- **国勢調査**： [令和2年(2020年)](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&tclass2val=0)  
+- **政府統計の総合窓口**：[e-Stat](https://www.e-stat.go.jp/)
+- **令和2年国勢調査**： [令和2年(2020年)](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&tclass2val=0)  
   **表番号**： [1-1](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142402&tclass2val=0) / [2-1](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142404&tclass2val=0)
 ---
 #### 人口と世帯数の補足
