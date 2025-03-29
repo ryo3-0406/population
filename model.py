@@ -28,6 +28,7 @@ class Population:
         else:
             df = df[df["国籍総数か日本人"] == "0_国籍総数"]
 
+
         df = df.loc[:, age_min:age_max]
         result = df.sum(axis=1).sum()
 
@@ -55,7 +56,6 @@ class Population:
         return area_list
 
 
-model = Population()
-# model.age_area_population(age_min=20, age_max=30, area=["北海道", "青森県", "岩手県"], sex="both", flag_japaneze=0)
+# model = Population()
+# model.age_area_population(age_min=20, age_max=30, area=["北海道", "青森県", "岩手県"], sex="男女", flag_japaneze=0)
 # model.household_count(area=["北海道", "青森県"])
-model.area_list()
