@@ -56,7 +56,7 @@ population_app/
 1. リポジトリをクローンします。
 
 ```bash
-git clone https://github.com/your-username/population_app.git
+git clone https://github.com/ryo3-0406/population.git
 cd population_app
 ```
 
