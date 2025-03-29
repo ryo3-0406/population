@@ -106,18 +106,42 @@ else:
         st.markdown("---")
 
 # 集計結果の後に備考を表示
-st.markdown("#### 備考・お知らせ")
 st.markdown("""
-- 最終更新日：2025年3月29日(金)
-- 本集計アプリは<a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&tclass2val=0" target="_blank" rel="noopener noreferrer">令和2年(2020年)の国勢調査データ</a>（表番号: <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142402&tclass2val=0" target="_blank" rel="noopener noreferrer">1-1</a>, <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142404&tclass2val=0" target="_blank" rel="noopener noreferrer">2-1</a>）を基に作成しています。
-- 全人口(外国籍含む)は**126,146,099**人ですが、その中に年齢不詳者が**2,931,838**人おり、この人数は結果に含めておりません。
-- 世帯数は「2_施設等の世帯」も含む総数で計算しています。
-- 関東(1都6県)：茨城県、栃木県、群馬県、埼玉県、千葉県、東京都、神奈川県
-- 中部(東海3県)：岐阜県、愛知県、三重県
-- 関西(2府4県)：滋賀県、京都府、大阪府、兵庫県、奈良県、和歌山県
-- 福岡(2県)：福岡県、佐賀県
-- 年齢(上限)は110が最大値であり、110を設定すると110才**以上**の人口が出力されます。
-- 次回の国勢調査は2025年秋予定で、その結果は2026年に公開されると想定されます。
-- 本サイトに関する問い合わせは【中村(亮)】までお願いします。
+<small>
+
+---
+
+#### 出典  
+- **国勢調査**： [令和2年(2020年)](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&tclass2val=0)  
+  **表番号**： [1-1](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142402&tclass2val=0) / [2-1](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142404&tclass2val=0)
+
+---
+
+#### 集計のポイント  
+- 全人口**126,146,099人**だが、年齢不詳**2,931,838人**は除外
+- 世帯数は「2_施設等の世帯」も含む総数で算出
+
+---
+
+#### 対象エリア  
+- **関東(1都6県)**： 茨城、栃木、群馬、埼玉、千葉、東京、神奈川  
+- **東海(3県)**： 岐阜、愛知、三重  
+- **関西(2府4県)**： 滋賀、京都、大阪、兵庫、奈良、和歌山  
+- **福岡(2県)**： 福岡、佐賀
+
+---
+
+#### 注意点  
+- **年齢上限**: 110才 (**110**に設定すると110才以上の人口を算出)  
+- **次回調査**: 2025秋実施、結果は2026年末ごろ公開予定
+
+---
+
+#### その他
+- 問い合わせ先：中村(亮)
+- 最終更新日：2025/03/31(日)
+</small>
 """, unsafe_allow_html=True)
+
+
 
