@@ -159,7 +159,7 @@ if excel_rows:
 
     date_text = get_japan_date_text()
     default_filename = "令和2年国勢調査_人口集計_" + date_text + ".xlsx"
-    filename_input = st.text_input("※ファイル名を変更する場合はファイル名(拡張子は.xlsxのみ有効)を入力してEnter", value=default_filename)
+    filename_input = st.text_input("※ファイル名を変更する場合はファイル名（拡張子は.xlsxのみ有効）を入力してEnter", value=default_filename)
     st.download_button(
         label="Excelでダウンロード",
         data=excel_data,
