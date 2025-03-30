@@ -145,7 +145,7 @@ if excel_rows:
     excel_data = output.getvalue()
 
     date_text = get_ymd_text()
-    default_filename = "令和2年国勢調査_人口集計" + date_text
+    default_filename = "令和2年国勢調査_人口集計_" + date_text
     filename_input = st.text_input("※ファイル名を変更する場合はファイル名（拡張子は不要）を入力してEnter", value=default_filename)
     st.download_button(
         label="Excelでダウンロード",
