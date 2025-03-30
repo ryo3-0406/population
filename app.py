@@ -103,20 +103,33 @@ else:
             continue
         formatted_value = f"{value:,} {unit}"
         # 集計結果カードの表示（設定内容は枠外に表示）
+        formatted_value = f"{value:,} {unit}"
+
+        # 枠の外に「集計 ◯」のタイトルを出す
+        st.markdown(
+            f"<h4 style='margin-top:0.1rem; margin-bottom:0.3rem; color: #333;'>▼ 集計 {idx}</h4>",
+            unsafe_allow_html=True
+        )
+
+        # 結果だけをカード内にスタイリッシュに表示
         st.markdown(
             f"""
             <div style="
-                background-color:#f0f2f6;
-                padding: 1.2rem;
-                border-radius: 12px;
+                background-color:#f8f9fa;
+                padding: 1.5rem;
+                border-left: 6px solid #4A90E2;
+                border-radius: 8px;
+                font-size: 2.0rem;
+                font-weight: bold;
+                color: #222;
                 margin-bottom: 0.5rem;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             ">
-                <h4 style="margin-bottom: 0.5rem; color: black;">集計 {idx}</h4>
-                <p style="font-size: 1.5rem; font-weight: bold; color: black;">{formatted_value}</p>
+                {formatted_value}
             </div>
-            """, unsafe_allow_html=True)
-        # 設定内容をカードの外で表示
+            """,
+            unsafe_allow_html=True
+        )
         # 設定内容を控えめに表示する例
         st.markdown(
             "<div style='font-size:0.9rem; margin-top:0.5rem;'>設定内容:</div>",
