@@ -2,6 +2,14 @@ from model import Population
 import streamlit as st
 import pandas as pd
 from io import BytesIO
+from datetime import datetime
+
+
+def get_ymd_text():
+    today = datetime.now()
+    year_short = today.strftime("%y")  # 西暦下2桁
+    month_day = today.strftime("%m%d")
+    return f"{year_short}{month_day}"
 
 
 # モデルの初期化
@@ -136,7 +144,8 @@ if excel_rows:
 
     excel_data = output.getvalue()
 
-    default_filename = "令和2年国勢調査_人口集計"
+    date_text = get_ymd_text()
+    default_filename = "令和2年国勢調査_人口集計" + date_text
     filename_input = st.text_input("※ファイル名を変更する場合はファイル名（拡張子は不要）を入力してEnter", value=default_filename)
     st.download_button(
         label="Excelでダウンロード",
