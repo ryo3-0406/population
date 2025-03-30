@@ -130,6 +130,7 @@ else:
             """,
             unsafe_allow_html=True
         )
+
         # 設定内容を控えめに表示する例
         st.markdown(
             "<div style='font-size:0.9rem; margin-top:0.5rem;'>設定内容:</div>",
@@ -141,13 +142,19 @@ else:
                 unsafe_allow_html=True
             )
 
+        # 結果だけをカード内にスタイリッシュに表示した後にコピー用のコードブロックを追加
+
+        st.caption("\n")
+        st.caption("※コピー用※")
+        st.code(f"{value}", language="python")
+        st.caption("↑コピーする場合は上記ブロックの右端ボタンをクリック")
+
         st.markdown("---")
 
 # Excel出力
 if excel_rows:
     st.markdown("""    
-    #### エクスポート
-    集計結果をEXCELでダウンロード
+    #### Excelでエクスポート
     """)
     df_excel = pd.DataFrame(excel_rows)
 
@@ -177,23 +184,22 @@ st.markdown("""
 - **令和2年国勢調査**： [令和2年(2020年)](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&tclass2val=0)  
   **表番号**： [1-1](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142402&tclass2val=0) / [2-1](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001136464&cycle=0&tclass1=000001136466&stat_infid=000032142404&tclass2val=0)
 ---
-#### 人口と世帯数の補足
+#### 人口と世帯数
 - 年齢不詳の**2,931,838人**は除外
 - 世帯数は「2_施設等の世帯」も含む総数で算出
+- 年齢上限は110才(年齢(to)を[110]に設定すると110才以上の全ての人口を表示)  
 ---
-#### 主要エリアの概要 
+#### 主要エリアの内訳
 - **関東(1都6県)**： 茨城、栃木、群馬、埼玉、千葉、東京、神奈川  
 - **東海(3県)**： 岐阜、愛知、三重  
 - **関西(2府4県)**： 滋賀、京都、大阪、兵庫、奈良、和歌山  
 - **福岡(2県)**： 福岡、佐賀
 ---
-#### 注意点 
-- **年齢上限**： 110才 ([110]に設定すると110才以上の人口を算出)  
-- **次回の国勢調査**： 2025年秋頃に実施、結果は2026年末頃に公開想定
----
 #### 更新情報
 - **最終更新日**：2025/03/30(日)
 - **更新内容**：アプリケーション全体を最新化し、UI・UXを向上
+- **次回の国勢調査**： 2025年秋頃に実施想定、結果は2026年末頃に公開される見通し
+
 </small>
 """, unsafe_allow_html=True)
 
