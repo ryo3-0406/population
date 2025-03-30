@@ -51,8 +51,8 @@ for i in range(number_of_aggregation):
             sex = st.radio("性別", ["男女", "男", "女"], index=0, key=f"sex_{i}")
             settings["性別"] = sex
 
-            age_min = st.number_input("年齢（下限）", min_value=0, max_value=110, value=18, key=f"age_min_{i}")
-            age_max = st.number_input("年齢（上限）", min_value=0, max_value=110, value=59, key=f"age_max_{i}")
+            age_min = st.number_input("年齢（from）", min_value=0, max_value=110, value=18, key=f"age_min_{i}")
+            age_max = st.number_input("年齢（to）", min_value=0, max_value=110, value=59, key=f"age_max_{i}")
             settings["年齢"] = f"{age_min}～{age_max}"
 
             if selected_area:
