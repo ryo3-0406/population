@@ -141,7 +141,7 @@ if excel_rows:
     st.download_button(
         label="Excelでダウンロード",
         data=excel_data,
-        file_name=f"{filename_input}",
+        file_name=f"{filename_input}.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
     st.markdown("---")
