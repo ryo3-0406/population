@@ -31,8 +31,7 @@ st.image(resized_image)
 st.subheader("人口/世帯数 基本集計")
 
 # サイドバー設定
-st.sidebar.title("2020年国勢調査")
-st.sidebar.header("集計設定")
+st.sidebar.title("集計設定")
 
 # 集計対象の選択
 household_or_personal = st.sidebar.radio("【集計対象】", ["人口", "世帯数"], index=0)
