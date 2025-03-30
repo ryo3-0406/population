@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 from io import BytesIO
 from datetime import datetime, timedelta, timezone
+from PIL import Image
 
 
 def get_japan_date_text():
@@ -19,11 +20,14 @@ model = Population()
 st.set_page_config(page_title="令和2年国勢調査 人口集計", layout="wide")
 
 # メインタイトル
-st.title("令和2年('20年) 国勢調査")
-st.subheader("世帯数・人口 基本集計")
+image = Image.open("./fig/title.jpg")
+st.image(image, use_container_width=True)
+
+st.subheader("人口/世帯数 基本集計")
 
 # サイドバー設定
-st.sidebar.title("設定")
+st.sidebar.title("令和2年国勢調査")
+st.sidebar.header("設定")
 
 # 集計対象の選択
 household_or_personal = st.sidebar.radio("【集計対象】", ["人口", "世帯数"], index=0)
