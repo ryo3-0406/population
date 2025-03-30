@@ -21,7 +21,12 @@ st.set_page_config(page_title="令和2年国勢調査 人口集計", layout="wid
 
 # メインタイトル
 image = Image.open("./fig/title.jpg")
-st.image(image, use_container_width=True)
+ratio = image.height / image.width
+new_height = int(500 * ratio)
+resized_image = image.resize((500, new_height), Image.LANCZOS)
+
+st.image(resized_image)
+# st.image(image, use_container_width=True)
 
 st.subheader("人口/世帯数 基本集計")
 
