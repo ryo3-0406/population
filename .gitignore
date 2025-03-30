@@ -4,3 +4,4 @@ venv_population_mac
 *xml
 .idea
 *iml
+.devcontainer
