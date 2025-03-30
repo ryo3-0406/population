@@ -107,7 +107,7 @@ else:
 
         # 枠の外に「集計 ◯」のタイトルを出す
         st.markdown(
-            f"<h5 style='margin-top:0.1rem; margin-bottom:0.3rem;'>▼ 集計 {idx}</h5>",
+            f"<h4 style='margin-top:0.1rem; margin-bottom:0.3rem;'>▼ 集計 {idx}</h4>",
             unsafe_allow_html=True
         )
 
@@ -141,8 +141,6 @@ else:
                 f"<div style='font-size:0.8rem; margin-bottom:0.2rem;'>{key}: {val}</div>",
                 unsafe_allow_html=True
             )
-
-        # 結果だけをカード内にスタイリッシュに表示した後にコピー用のコードブロックを追加
 
         st.caption("\n")
         st.caption("※コピー用※")
