@@ -2,14 +2,14 @@ from model import Population
 import streamlit as st
 import pandas as pd
 from io import BytesIO
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 
-def get_ymd_text():
-    today = datetime.now()
-    year_short = today.strftime("%y")  # 西暦下2桁
-    month_day = today.strftime("%m%d")
-    return f"{year_short}{month_day}"
+def get_japan_date_text():
+    # JSTはUTC+9
+    jst = timezone(timedelta(hours=9))
+    now_jst = datetime.now(jst)
+    return now_jst.strftime("%y%m%d")  # 西暦下2桁 + 月 + 日
 
 
 # モデルの初期化
@@ -144,7 +144,7 @@ if excel_rows:
 
     excel_data = output.getvalue()
 
-    date_text = get_ymd_text()
+    date_text = get_japan_date_text()
     default_filename = "令和2年国勢調査_人口集計_" + date_text
     filename_input = st.text_input("※ファイル名を変更する場合はファイル名（拡張子は不要）を入力してEnter", value=default_filename)
     st.download_button(
