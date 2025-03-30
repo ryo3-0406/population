@@ -107,7 +107,7 @@ else:
 
         # 枠の外に「集計 ◯」のタイトルを出す
         st.markdown(
-            f"<h4 style='margin-top:0.1rem; margin-bottom:0.3rem; color: #333;'>▼ 集計 {idx}</h4>",
+            f"<h4 style='margin-top:0.1rem; margin-bottom:0.3rem;'>▼ 集計 {idx}</h4>",
             unsafe_allow_html=True
         )
 
