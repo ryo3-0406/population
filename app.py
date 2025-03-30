@@ -137,7 +137,7 @@ if excel_rows:
     excel_data = output.getvalue()
 
     default_filename = "令和2年国勢調査_人口集計"
-    filename_input = st.text_input("保存するファイル名（拡張子は不要）を入力してEnter", value=default_filename)
+    filename_input = st.text_input("※ファイル名を変更する場合はファイル名（拡張子は不要）を入力してEnter", value=default_filename)
     st.download_button(
         label="Excelでダウンロード",
         data=excel_data,
