@@ -66,7 +66,7 @@ for i in range(number_of_aggregation):
 
             age_min = st.number_input("年齢（from）", min_value=0, max_value=110, value=18, key=f"age_min_{i}")
             age_max = st.number_input("年齢（to）", min_value=0, max_value=110, value=59, key=f"age_max_{i}")
-            settings["年齢"] = f"{age_min}～{age_max}"
+            settings["年齢"] = f"{age_min}才～{age_max}才"
 
             if selected_area:
                 result = model.age_area_population(
