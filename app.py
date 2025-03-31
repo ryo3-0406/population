@@ -27,8 +27,8 @@ new_height = int(filesize * ratio)
 resized_image = image.resize((filesize, new_height), Image.LANCZOS)
 st.image(resized_image)
 
-st.title("人口＆世帯数 基本集計")
-st.sidebar.title("集計設定")
+st.header("人口＆世帯数 基本集計")
+st.sidebar.header("集計設定")
 
 # 集計対象の選択
 household_or_personal = st.sidebar.radio("【集計対象】", ["人口", "世帯数"], index=0)
