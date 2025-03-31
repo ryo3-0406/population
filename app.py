@@ -21,7 +21,7 @@ st.set_page_config(page_title="令和2年国勢調査 人口集計", layout="wid
 
 # メインタイトル
 image = Image.open("./fig/title.jpg")
-filesize = 400
+filesize = 350
 ratio = image.height / image.width
 new_height = int(filesize * ratio)
 resized_image = image.resize((filesize, new_height), Image.LANCZOS)
