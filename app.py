@@ -28,9 +28,6 @@ resized_image = image.resize((filesize, new_height), Image.LANCZOS)
 st.image(resized_image)
 
 st.title("人口＆世帯数 基本集計")
-
-
-# サイドバー設定
 st.sidebar.title("集計設定")
 
 # 集計対象の選択
