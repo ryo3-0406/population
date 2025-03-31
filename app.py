@@ -20,6 +20,7 @@ model = Population()
 st.set_page_config(page_title="令和2年国勢調査 人口集計", layout="wide")
 
 # メインタイトル
+st.title("人口/世帯数 基本集計")
 image = Image.open("./fig/title.jpg")
 ratio = image.height / image.width
 new_height = int(500 * ratio)
@@ -28,7 +29,6 @@ resized_image = image.resize((500, new_height), Image.LANCZOS)
 st.image(resized_image)
 # st.image(image, use_container_width=True)
 
-st.subheader("人口/世帯数 基本集計")
 
 # サイドバー設定
 st.sidebar.title("集計設定")
