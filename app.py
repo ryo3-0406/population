@@ -102,6 +102,7 @@ for i in range(number_of_aggregation):
 # --- 結果表示 ---
 if not aggregations or all(r[1] is None for r in aggregations):
     st.info("左のサイドバーから集計条件を選択してください。")
+    st.markdown("---")
 else:
     for idx, value, unit, settings in aggregations:
         if value is None:
@@ -154,29 +155,29 @@ else:
 
         st.markdown("---")
 
-# Excel出力
-if excel_rows:
-    st.markdown("""    
-    #### Excelでエクスポート
-    """)
-    df_excel = pd.DataFrame(excel_rows)
+    # Excel出力
+    if excel_rows:
+        st.markdown("""    
+        #### Excelでエクスポート
+        """)
+        df_excel = pd.DataFrame(excel_rows)
 
-    output = BytesIO()
-    with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
-        df_excel.to_excel(writer, index=False, sheet_name="集計結果")
+        output = BytesIO()
+        with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+            df_excel.to_excel(writer, index=False, sheet_name="集計結果")
 
-    excel_data = output.getvalue()
+        excel_data = output.getvalue()
 
-    date_text = get_japan_date_text()
-    default_filename = "令和2年国勢調査_人口集計_" + date_text + ".xlsx"
-    filename_input = st.text_input("※ファイル名を変更する場合はファイル名を入力してEnter（拡張子は.xlsxのみ有効）", value=default_filename)
-    st.download_button(
-        label="Excelでダウンロード",
-        data=excel_data,
-        file_name=f"{filename_input}",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    )
-    st.markdown("---")
+        date_text = get_japan_date_text()
+        default_filename = "令和2年国勢調査_人口集計_" + date_text + ".xlsx"
+        filename_input = st.text_input("※ファイル名を変更する場合はファイル名を入力してEnter（拡張子は.xlsxのみ有効）", value=default_filename)
+        st.download_button(
+            label="Excelでダウンロード",
+            data=excel_data,
+            file_name=f"{filename_input}",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
+        st.markdown("---")
 
 # 集計結果の後に備考を表示
 st.markdown("""
