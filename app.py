@@ -21,14 +21,13 @@ st.set_page_config(page_title="令和2年国勢調査 人口集計", layout="wid
 
 # メインタイトル
 image = Image.open("./fig/title.jpg")
-filesize = 350
+filesize = 500
 ratio = image.height / image.width
 new_height = int(filesize * ratio)
 resized_image = image.resize((filesize, new_height), Image.LANCZOS)
-st.title("人口＆世帯数 基本集計")
-
 st.image(resized_image)
-# st.image(image, use_container_width=True)
+
+st.title("人口＆世帯数 基本集計")
 
 
 # サイドバー設定
