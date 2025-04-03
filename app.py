@@ -99,85 +99,93 @@ for i in range(number_of_aggregation):
         }
         excel_rows.append(excel_row)
 
+
 # --- 結果表示 ---
-if not aggregations or all(r[1] is None for r in aggregations):
-    st.info("左のサイドバーから集計条件を選択してください。")
-    st.markdown("---")
-else:
-    for idx, value, unit, settings in aggregations:
-        if value is None:
-            continue
-        formatted_value = f"{value:,} {unit}"
-        # 集計結果カードの表示（設定内容は枠外に表示）
-        formatted_value = f"{value:,} {unit}"
 
-        # 枠の外に「集計 ◯」のタイトルを出す
-        st.markdown(
-            f"<h4 style='margin-top:0.1rem; margin-bottom:0.3rem;'>▼ 集計 {idx}</h4>",
-            unsafe_allow_html=True
-        )
+if st.button("集計する", type="primary"):
+    # 地域未選択の集計があるかチェック
+    if any(settings["地域"] == "未選択" for _, _, _, settings in aggregations):
+        st.error("すべての集計で、地域を1つ以上選択してください。")
+    elif not aggregations or all(r[1] is None for r in aggregations):
+        st.info("左のサイドバーから集計条件を選択してください。")
+        st.markdown("---")
+    else:
+        for idx, value, unit, settings in aggregations:
+            if value is None:
+                continue
+            formatted_value = f"{value:,} {unit}"
+            # 集計結果カードの表示（設定内容は枠外に表示）
+            formatted_value = f"{value:,} {unit}"
 
-        # 結果だけをカード内にスタイリッシュに表示
-        st.markdown(
-            f"""
-            <div style="
-                background-color:#f8f9fa;
-                padding: 1.5rem;
-                border-left: 6px solid #4A90E2;
-                border-radius: 8px;
-                font-size: 2.0rem;
-                font-weight: bold;
-                color: #222;
-                margin-bottom: 0.5rem;
-                box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            ">
-                {formatted_value}
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-        # 設定内容を控えめに表示する例
-        st.markdown(
-            "<div style='font-size:0.9rem; margin-top:0.5rem;'>設定内容:</div>",
-            unsafe_allow_html=True
-        )
-        for key, val in settings.items():
+            # 枠の外に「集計 ◯」のタイトルを出す
             st.markdown(
-                f"<div style='font-size:0.8rem; margin-bottom:0.2rem;'>{key}: {val}</div>",
+                f"<h4 style='margin-top:0.1rem; margin-bottom:0.3rem;'>▼ 集計 {idx}</h4>",
                 unsafe_allow_html=True
             )
 
-        st.caption("\n")
-        st.caption("※コピー用※")
-        st.code(f"{value}", language="python")
-        st.caption("↑コピーする場合は上記ブロックの右端ボタンをクリック")
+            # 結果だけをカード内にスタイリッシュに表示
+            st.markdown(
+                f"""
+                <div style="
+                    background-color:#f8f9fa;
+                    padding: 1.5rem;
+                    border-left: 6px solid #4A90E2;
+                    border-radius: 8px;
+                    font-size: 2.0rem;
+                    font-weight: bold;
+                    color: #222;
+                    margin-bottom: 0.5rem;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+                ">
+                    {formatted_value}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
 
-        st.markdown("---")
+            # 設定内容を控えめに表示する例
+            st.markdown(
+                "<div style='font-size:0.9rem; margin-top:0.5rem;'>設定内容:</div>",
+                unsafe_allow_html=True
+            )
+            for key, val in settings.items():
+                st.markdown(
+                    f"<div style='font-size:0.8rem; margin-bottom:0.2rem;'>{key}: {val}</div>",
+                    unsafe_allow_html=True
+                )
 
-    # Excel出力
-    if excel_rows:
-        st.markdown("""    
-        #### Excelでエクスポート
-        """)
-        df_excel = pd.DataFrame(excel_rows)
+            st.caption("\n")
+            st.caption("※コピー用※")
+            st.code(f"{value}", language="python")
+            st.caption("↑コピーする場合は上記ブロックの右端ボタンをクリック")
 
-        output = BytesIO()
-        with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
-            df_excel.to_excel(writer, index=False, sheet_name="集計結果")
+            st.markdown("---")
 
-        excel_data = output.getvalue()
+        # Excel出力
+        if excel_rows:
+            st.markdown("""    
+            #### Excelでエクスポート
+            """)
+            df_excel = pd.DataFrame(excel_rows)
 
-        date_text = get_japan_date_text()
-        default_filename = "令和2年国勢調査_人口集計_" + date_text + ".xlsx"
-        filename_input = st.text_input("※ファイル名を変更する場合はファイル名を入力してEnter（拡張子は.xlsxのみ有効）", value=default_filename)
-        st.download_button(
-            label="Excelでダウンロード",
-            data=excel_data,
-            file_name=f"{filename_input}",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        )
-        st.markdown("---")
+            output = BytesIO()
+            with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+                df_excel.to_excel(writer, index=False, sheet_name="集計結果")
+
+            excel_data = output.getvalue()
+
+            date_text = get_japan_date_text()
+            default_filename = "令和2年国勢調査_人口集計_" + date_text + ".xlsx"
+            filename_input = st.text_input("※ファイル名を変更する場合はファイル名を入力してEnter（拡張子は.xlsxのみ有効）", value=default_filename)
+            st.download_button(
+                label="Excelでダウンロード",
+                data=excel_data,
+                file_name=f"{filename_input}",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            )
+            st.markdown("---")
+else:
+    st.info("↑左のサイドバーで集計条件の設定が完了したら、このボタンをクリックして下さい。")
 
 # 集計結果の後に備考を表示
 st.markdown("""
