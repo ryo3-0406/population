@@ -184,6 +184,9 @@ if st.button("集計する", type="primary"):
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
             st.markdown("---")
+    st.cache_data.clear()  # st.cache_data を利用している場合
+    st.cache_resource.clear()  # st.cache_resource を利用している場合
+
 else:
     st.info("左のサイドバーで集計条件の設定が完了したら、「集計する」ボタンをクリックして下さい。")
 
@@ -208,11 +211,9 @@ st.markdown("""
 - **福岡(2県)**： 福岡、佐賀
 ---
 #### 更新情報
-- **最終更新日**：2025/04/03(木)
+- **最終更新日**：2025/04/04(金)
 - **次回の国勢調査**： 2025年秋頃に実施想定、結果は2026年末頃に公開される見通し
 
 </small>
 """, unsafe_allow_html=True)
-
-
 
