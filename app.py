@@ -24,7 +24,7 @@ def main():
 
     # メインタイトル
     image = Image.open("./fig/title.jpg")
-    filesize = 500
+    filesize = 300
     ratio = image.height / image.width
     new_height = int(filesize * ratio)
     resized_image = image.resize((filesize, new_height), Image.LANCZOS)
