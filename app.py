@@ -28,7 +28,7 @@ def main():
     # resized_image = image.resize((filesize, new_height), Image.LANCZOS)
     # st.image(resized_image)
     st.title("国勢調査2020")
-    st.header("人口＆世帯数 基本集計")
+    st.subheader("人口＆世帯数 基本集計")
     st.sidebar.header("集計設定")
 
     # 集計対象の選択
